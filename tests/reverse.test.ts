@@ -33,6 +33,17 @@ describe("reverseSentence", () => {
     );
   });
 
+  it("reverse sentence", () => {
+    const sentence = "race a car";
+    const reverseWords = true;
+    const reverseLetters = false;
+
+    expect(reverseSentence(sentence, reverseWords, reverseLetters)).to.equal(
+      "car a race"
+    );
+  });
+
+
   it("should reverse sentences by letters", () => {
     const sentence = "the letters";
     const reverseWords = false;
@@ -43,13 +54,33 @@ describe("reverseSentence", () => {
     );
   });
 
+  it("should reverse words only in a sentence", () => {
+    const sentence = "A man a plan a canal";
+    const reverseWords = true;
+    const reverseLetters = false;
+
+    const result = reverseSentence(sentence, reverseWords, reverseLetters);
+    expect(result).to.equal("canal a plan a man A");
+  });
+
   it("should reverse both", () => {
     const sentence = "this is a sentence";
+    
     const reverseWords = true;
     const reverseLetters = true;
 
     expect(reverseSentence(sentence, reverseWords, reverseLetters)).to.equal(
       "ecnetnes a si siht"
     );
+
+    it("should throw an error for non-string input", () => {
+      const sentence = 12345; // Non-string input
+      const reverseWords = true;
+      const reverseLetters = true;
+  
+      expect(() => reverseSentence(sentence as any, reverseWords, reverseLetters)).to.throw(Error,
+        "Invalid input, Sentence should be a non-empty string."
+      );
+    });
   });
 });

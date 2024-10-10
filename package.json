@@ -19,5 +19,10 @@
   "version": "2.0.0",
   "description": "Simple coding challenge for Evie!",
   "main": "dist/index.js",
-  "author": "Evie Networks"
+  "author": "Evie Networks",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [],
+  "license": "ISC"
 }
